@@ -21,7 +21,7 @@
 ## Quality of Service
 - The network interface returns quickly (the server has a positioning response time of less than 50 milliseconds per time), and the average accuracy is 70 meters, of which the Wi-Fi accuracy is about 40 meters, the base station positioning accuracy is about 200 meters, and the coverage rate is 98%.
 
--80 thousand billion times request 
+- 80 thousand billion times request 
 - 1300 thousand developers use 
 - 650 thousand active applications 
 
