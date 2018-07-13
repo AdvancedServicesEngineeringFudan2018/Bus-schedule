@@ -23,4 +23,7 @@
 
 ## Context 
 - The location URL of the routine is [link](http://lbsyun.baidu.com/)
-- 
+
+## Reference
+- [1]陈芳.城市公交调度模型研究[J].中南公路工程,2005(02):162-164. 
+- [2]杨新苗,王炜.基于准实时信息的公交调度优化系统[J].交通与计算机,2000(05):12-15. 
