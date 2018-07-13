@@ -19,10 +19,9 @@
 - The use of Baidu Map API could be free with the permission of Baidu Inc. We intend to use the data of Baidu Map directly when develop.
 
 ## Quality of Service （Baidu Map）
-- The network interface returns quickly (the server has a positioning response time of less than 50 milliseconds per time), and the average accuracy is 70 meters, of which the Wi-Fi accuracy is about 40 meters,  and the coverage rate is 98%.
 
 - 80 thousand billion times request 
-- 1300 thousand developers use 
+- 1.3 million developers use 
 - 650 thousand active applications 
 
 
