@@ -12,7 +12,7 @@
 
 ## Quality of data 
 - The Bus position data should be precise which must collect the latitude and longitude
-- THe Bus position data also should be real-time which needed to ne sent at least every 30 seconds
+- THe Bus position data also should be real-time which needed to be sent at least every 30 seconds
 - The latest routine and schedule should be complete
 
 ## Data Usage
