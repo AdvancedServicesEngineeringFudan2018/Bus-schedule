@@ -1,4 +1,5 @@
-![Technical architecture](https://raw.githubusercontent.com/AdvancedServicesEngineeringFudan2018/Bus-schedule/master/Technical%20architecture.png)
+![Technical architecture](https://raw.githubusercontent.com/AdvancedServicesEngineeringFudan2018/Bus-schedule/master/Technical%20architecture.png)  
+
 From the picture above，we can see all of the technology and the services we will use in Our platform.  
 
 Firstly, the smart phone installed in the bus will automaticly send the position message at fixed time and we will use a service to collect these message. these message will be sent to the rabbitMq which can serve as message broker.  
