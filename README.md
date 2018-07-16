@@ -25,3 +25,8 @@ Driver，passenger, Bus company, the government , developer, cloud service provi
 
 ## Similar or related scenarios:
 Plane schedule platform
+
+## Author
+[GuoSiYIng](https://github.com/Guosiying)
+[Jack Miao](https://github.com/miaoxu9999)
+[Fan ZheHao](https://github.com/f953983670)
