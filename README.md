@@ -27,7 +27,7 @@ Driver，passenger, Bus company, the government , developer, cloud service provi
 Plane schedule platform
 
 ## Author
-[GuoSiYIng](https://github.com/Guosiying)  
+[GuoSiYing](https://github.com/Guosiying)  
 
 [Jack Miao](https://github.com/miaoxu9999) 
 
