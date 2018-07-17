@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/miaoxu9999/config-repo.git
+          password: mx637095
+          username: 2229009552@qq.com
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761
