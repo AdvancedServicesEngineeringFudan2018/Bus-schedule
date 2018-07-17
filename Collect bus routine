@@ -7,7 +7,7 @@ import java.net.*;
 public class test {
 
     public static void main(String[] args) {
-        // GET请求
+        // 请求格式（GET请求）
         //http://api.map.baidu.com/place/v2/search?query=ATM机&tag=银行&region=北京&output=json&ak=您的ak
 
         //String url = "http://api.map.baidu.com/direction/v1?mode=driving&origin=清华大学&destination=北京大学&origin_region=北京&destination_region=北京&output=json&ak=您的ak";
@@ -67,7 +67,7 @@ public class test {
     }
 
 
-    //连接及解析高德地图
+    //连接及解析百度地图
     public static String getResponse(String serverUrl){
         //用JAVA发起http请求，并返回json格式的结果
         StringBuffer result = new StringBuffer();
