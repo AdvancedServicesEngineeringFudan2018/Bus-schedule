@@ -1,8 +1,17 @@
 # Bus-schedule platform
+## Scenario: 
+Bus Schedule Platform
+
+![image](https://github.com/AdvancedServicesEngineeringFudan2018/Bus-schedule/blob/master/diagram/Project-Bus%20schedule%20platform.png?raw=true)
+## Author：
+[Guo Siying](https://github.com/Guosiying)  
+
+[Jack Miao](https://github.com/miaoxu9999) 
+
+[Fan ZheHao](https://github.com/f953983670)
 
 ## Background:
 Nowadays, Most of the buses have connected to the Internet through the sensor, However, the installment of the sensor have to take a lot of time and could cost a lot of money as well. Besides, we can see that different regions have different types of bus scheduling system. The change of the system could be frequent.
-Scenario: Bus schedule
 
 ## Empathize ：
 If you implement the scenario, who would be your customers?
@@ -11,7 +20,6 @@ The goal of our customers could be the driver，the bus company in different reg
 ## Define What do your users need?
 1.	Drivers only need a smartphone which can provide the position message in time.
 2.	The Bus company should have a cloud environment in which we can store the data and monitor the change of the platform. 
-
  
 ## Scenario: Bus schedule
 ## Possible solutions:
@@ -26,9 +34,3 @@ Driver，passenger, Bus company, the government , developer, cloud service provi
 ## Similar or related scenarios:
 Plane schedule platform
 
-## Author
-[GuoSiYing](https://github.com/Guosiying)  
-
-[Jack Miao](https://github.com/miaoxu9999) 
-
-[Fan ZheHao](https://github.com/f953983670)
