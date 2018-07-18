@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公交车控制</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+
+    <style>
+        #zone{
+            height: 757px;
+            width: 800px;
+            background-image: url("img/zone.jpg");
+            float: left;
+        }
+        #bus{
+
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            left: 70px;
+            top: 10px;
+
+        }
+        #panel{
+            float: left;
+        }
+        #panel>#position{
+
+            border-radius: 4px 4px 0 0;
+            width: 300px;
+            height:300px;
+            padding: 15px 15px 15px;
+            margin: 20px 15px 0 15px ;
+            border-color: #ddd;
+            border-style: solid;
+            border-width: 1px 1px 0 1px;
+            /*-webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);*/
+            /*box-shadow: inset 0 3px 6px rgba(0,0,0,.05);*/
+
+        }
+        #panel>#message{
+
+            border-radius: 0 0 4px 4px;
+            width: 300px;
+            height:300px;
+            padding: 15px 15px 15px;
+            margin: 0 15px 15px;
+            border-color: #ddd;
+            border-style: solid;
+            border-width: 1px;
+            background-color: #f7f7f9;
+            /*-webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);*/
+            /*box-shadow: inset 0 3px 6px rgba(0,0,0,.05);*/
+
+        }
+    </style>
+</head>
+<body>
+<div style="width: 1200px;">
+<div id="zone" >
+    <div id="bus"><img class="img-rounded" src="img/bus.png" style="width: 50px;height: 50px"></div>
+</div>
+<div id="panel" >
+    <div id="position">
+        <h4> <span class="glyphicon glyphicon-map-marker"> 巴士定位</span></h4>
+        <div style="margin: 20px;">
+            <h5 >坐标:(<span id="x"></span>,<span id="y"></span>)</h5>
+
+            <h5>当前时间:<span id="time"></span></h5>
+        </div>
+
+    </div>
+    <div id="message">
+        <h4><span class="glyphicon glyphicon-bullhorn"> 调度信息</span></h4>
+        <h5 id="schedule-result" style="margin: 20px;"></h5>
+    </div>
+</div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    var myDate = new Date();
+    myDate.getYear();        // 获取当前年份(2位)
+    myDate.getFullYear();    // 获取完整的年份(4位,1970-????)
+    myDate.getMonth();       // 获取当前月份(0-11,0代表1月)
+    myDate.getDate();        // 获取当前日(1-31)
+    myDate.getDay();         // 获取当前星期X(0-6,0代表星期天)
+    myDate.getTime();        // 获取当前时间(从1970.1.1开始的毫秒数)
+    myDate.getHours();       // 获取当前小时数(0-23)
+    myDate.getMinutes();     // 获取当前分钟数(0-59)
+    myDate.getSeconds();     // 获取当前秒数(0-59)
+    myDate.getMilliseconds();    // 获取当前毫秒数(0-999)
+    myDate.toLocaleDateString();     // 获取当前日期
+    var mytime=myDate.toLocaleTimeString();     // 获取当前时间
+    myDate.toLocaleString( );        // 获取日期与时间
+
+    // 对Date的扩展，将 Date 转化为指定格式的String
+    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+    // 例子：
+    // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+    // (new Date()).Format("yyyy-M-d h:m:s.S") ==> 2006-7-2 8:9:4.18
+
+    Date.prototype.Format = function (fmt) { // author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+</script>
+<script type="text/javascript">
+    var bus = document.getElementById("bus");
+    window.onload = function () {
+
+        document.onkeydown = function (event) {
+            event = event || window.event;/*||为或语句，当IE不能识别event时候，就执行window.event 赋值*/
+            console.log(event.keyCode);
+            switch (event.keyCode){/*keyCode:字母和数字键的键码值*/
+                /*37、38、39、40分别对应左上右下*/
+                case 37:
+                    if(bus.offsetLeft>10)
+                    bus.style.left = bus.offsetLeft - 10 + "px";/*图形左移*/
+                    break;
+                case 38:
+                    if(bus.offsetTop>10)
+                    bus.style.top = bus.offsetTop - 10 + "px";/*图形上移*/
+                    break;
+                case 39:
+                    // alert("你点击了右键");
+                    // alert(box1.offsetLeft + 10 + "px");
+                    //alert(bus.style.left);
+                    if(bus.offsetLeft<750)
+                    bus.style.left = bus.offsetLeft + 10 + "px";/*图形右移*/
+                    break;
+                case 40:
+                    if(bus.offsetTop<700)
+                    bus.style.top = bus.offsetTop+ 10+ "px";/*图形下移*/
+                    break;
+            }
+        }
+        setInterval("sendbusposition()","1000");
+    }
+    function sendbusposition()
+    {
+        console.log("x:"+bus.offsetLeft+";y:"+bus.offsetTop);
+        var mytime=new Date().Format("hh:mm:ss");
+        $("#x").html(bus.offsetLeft);
+        $("#y").html(bus.offsetTop);
+        $("#time").html(mytime);
+        var position={x:bus.offsetLeft,y:bus.offsetTop,time:mytime};
+        $.ajax({
+            url:'http://localhost:8081/sendposition',
+            type:'post', //GET
+            async:true,    //或false,是否异步
+            timeout:5000,    //超时时间
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            contentType: "application/json",
+            crossDomain: true,
+            data:JSON.stringify(position),
+            success:function(data,textStatus,jqXHR){
+                if(data.result=='Slow')
+                $("#schedule-result").html('比预期要慢，请加快速度！')
+                if(data.result=='Fast')
+                    $("#schedule-result").html('比预期要块，请减慢速度！')
+                console.log('result:'+data.result)
+                console.log('data:'+data)
+                console.log('textStatus'+textStatus)
+                console.log('jqXHR'+jqXHR)
+            },
+            error:function(xhr,textStatus){
+
+                console.log('错误')
+                console.log(xhr)
+                console.log(textStatus)
+            },
+            complete:function(){
+                console.log('结束')
+
+            }
+        })
+        
+
+    }
+
+</script>
+</body>
+</html>
