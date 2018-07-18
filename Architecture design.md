@@ -1,6 +1,9 @@
-![Technical architecture](https://raw.githubusercontent.com/AdvancedServicesEngineeringFudan2018/Bus-schedule/master/Technical%20architecture.png)  
+# Function Design
+![Function design](https://github.com/AdvancedServicesEngineeringFudan2018/Bus-schedule/blob/master/diagram/Function%20Design_BusSchedulePlatform.png?raw=true) 
+# Technology Design
+![Technology design](https://github.com/AdvancedServicesEngineeringFudan2018/Bus-schedule/blob/master/diagram/Technology%20Design_BusSchedulePlatform.png?raw=true)  
 
-From the picture above，we can see all of the technology and the services we will use in Our platform.  
+From the pictures ，we can see all of the technology and the services we will use in Our platform.  
 
 Firstly, the smart phone installed in the bus will automaticly send the position message at fixed time and we will use a service to collect these message. these message will be sent to the rabbitMq which can serve as message broker.  
 
@@ -14,5 +17,3 @@ The other service’s responsibility is as following ：
 All of the service could communicate with each other through the http and will be deployed on docker. The docker will be put on the AWS or Alibaba Cloud. The service will subscribe the data need from the rabbitMq which could save a lot of running cost and time（Reduction the coupling among services）.
 
 Finally，All the service will save the data in MySQL and will get the configuration in github.
-
-	
